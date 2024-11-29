@@ -14,5 +14,6 @@ public class Usuario {
     private String telefone;
     private Double renda;
     private Proposta proposta;
+    private String email;
 
 }

@@ -16,7 +16,7 @@ public class PropostaPendenteListener {
     @RabbitListener(queues = "${rabbitmq.queue.proposta.pendente}")
     public void propostaPendente(Proposta proposta) {
         String mensagem = String.format(MensagemConstante.PROPOSTA_EM_ANALISE, proposta.getUsuario().getNome());
-        notificacaoEmailService.notificar(mensagem);
+        notificacaoEmailService.notificar(mensagem, proposta.getUsuario().getEmail() != null && !proposta.getUsuario().getEmail().isEmpty() ? proposta.getUsuario().getEmail() : "");
     }
 
 }
